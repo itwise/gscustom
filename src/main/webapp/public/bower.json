@@ -1,0 +1,25 @@
+{
+	  "name": "device_type_detector",
+	  "version": "0.0.0",
+	  "homepage": "http://www.itwise.co.kr",
+	  "authors": [
+	    "Dongjun-Kim <djkim@itwise.co.kr>"
+	  ],
+	  "moduleType": [
+	    "globals"
+	  ],
+	  "license": "private",
+	  "ignore": [
+	    "**/.*",
+	    "node_modules",
+	    "bower_components",
+	    "lib",
+	    "test",
+	    "tests"
+	  ],
+	  "dependencies": {
+	  	"bootstrap": "~3.2.0",
+	  	"font-awesome": "~4.2.0"
+	  	
+	  }
+}
