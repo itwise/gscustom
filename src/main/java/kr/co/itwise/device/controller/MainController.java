@@ -1,5 +1,6 @@
 package kr.co.itwise.device.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,14 +39,15 @@ public class MainController {
 		ModelAndView mav = new ModelAndView("blank");
 		
 		Device device = DeviceUtils.getCurrentDevice(request);
-			
+		Cookie cookie;
 		if(device.isNormal()){
-			
+			cookie = new Cookie("viewType", "normal");
 		}else{
-			
-			
+			cookie = new Cookie("viewType", "mobile");
 		}
-		
+		cookie.setMaxAge(60*60*24*7);
+		cookie.setPath("/");
+		response.addCookie(cookie);
 		return mav;
 	}
 	
