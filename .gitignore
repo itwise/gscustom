@@ -2,6 +2,7 @@
 .project
 .settings
 .springBeans
+.classpath
 **/target/
 **/bin/
 
