@@ -31,7 +31,7 @@ public class MainController {
 	
 	@RequestMapping(value="/dummy", method = RequestMethod.POST)
 	public ModelAndView getDeviceInfo(@RequestParam("deviceWidth") int deviceWidth
-			, @RequestParam("redirect") String redirect
+			, @RequestParam(value = "redirect", required = false, defaultValue = "") String redirect
 			, @RequestParam("deviceHeight") int deviceHeight
 			, @RequestParam("deviceRatio") int deviceRatio
 			, HttpServletRequest request

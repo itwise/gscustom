@@ -21,8 +21,8 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 		String originViewName = viewName + "";
 
 		Cookie viewCookie = WebUtils.getCookie(request, "viewType");
-		System.out.println(viewCookie);
 		String viewType = (viewCookie == null) ? "" : viewCookie.getValue();
+		System.out.println("viewType : " + viewType);
 		
 		if(viewType.equals("mobile")){
 			viewName += "_NM";
@@ -34,6 +34,7 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 
 		File regFile = new File(viewFile);
 		if(!regFile.exists()){
+			System.out.println("not exist View File");
 			viewName = originViewName;
 		}
 
