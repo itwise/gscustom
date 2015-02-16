@@ -61,5 +61,11 @@ public class MainController {
 		ModelAndView mav = new ModelAndView("test");
 		return mav;
 	}
+	
+	@RequestMapping(value="/shop.gs")
+	public ModelAndView shopPage() {
+		ModelAndView mav = new ModelAndView("shop/main");
+		return mav;
+	}
 
 }
