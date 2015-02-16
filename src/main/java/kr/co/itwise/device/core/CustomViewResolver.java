@@ -33,6 +33,7 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 		viewFile = request.getRealPath(this.getPrefix() + viewName + this.getSuffix());
 
 		File regFile = new File(viewFile);
+		System.out.println("resolving view file: " + viewFile);
 		if(!regFile.exists()){
 			System.out.println("not exist View File");
 			viewName = originViewName;

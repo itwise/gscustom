@@ -15,9 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 	
-	@RequestMapping(value="/main")
+	@RequestMapping(value="/main.gs")
 	public ModelAndView mainPage(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("main");
+		ModelAndView mav = new ModelAndView("index/main");
 		mav.addObject("messageUrl", "TEST");
 		return mav;
 	}
@@ -50,9 +50,11 @@ public class MainController {
 		response.addCookie(cookie);
 		
 		if("".equals(redirect)){
-			return new ModelAndView("redirect:/main");
+			return new ModelAndView("redirect:/main.gs");
 		}else{
-			return new ModelAndView("redirect:" + redirect);
+			// FIXME 임시처리
+			redirect = redirect.replace("/DeviceTypeDetector/", "");
+			return new ModelAndView("redirect:/" + redirect);
 		}
 	}
 	

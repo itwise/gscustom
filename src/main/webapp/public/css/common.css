@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.double-block, .single-block{
+    position:relative;
+    background-size:cover;
+    background-position:center;
+}
+
+
+.single-block:before{
+    content: "";
+    display:block;
+    padding-top:100%;
+}
+.double-block:before{
+    content: "";
+    display:block;
+    padding-top:60%;
+}
