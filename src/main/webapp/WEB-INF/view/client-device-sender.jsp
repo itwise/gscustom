@@ -9,7 +9,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Welcome</title>
-		<script src="<%= request.getContextPath() %>/public/lib/jquery/dist/jquery.min.js"></script>
+		<script src="<%= request.getContextPath() %>/public/lib/jquery/dist/jquery.js"></script>
 	</head> 
 	<body>
 		<form method="POST" id="sendForm">
@@ -20,19 +20,13 @@
 	</body>
 	<script type="text/javascript">
 
-		var expire = new Date();
-		expire.setDate(expire.getDate() + 7);
-		
-		var deviceInfo = {
-				deviceWidth : window.screen.width,
-				deviceHeight : window.screen.height,
-				deviceRatio : window.devicePixelRatio
-		};
-		
-		//document.cookie = "deviceInfo=" + JSON.stringify(deviceInfo) + "; path=<%=request.getContextPath() %> ;expires=" + expire.toGMTString() + ";" ;
-		document.cookie = "deviceWidth=" + window.screen.width + "; path=<%=request.getContextPath() %> ;expires=" + expire.toGMTString() + ";" ;
+		<%-- document.cookie = "deviceWidth=" + window.screen.width + "; path=<%=request.getContextPath() %> ;expires=" + expire.toGMTString() + ";" ;
 		document.cookie = "deviceHeight=" + window.screen.height + "; path=<%=request.getContextPath() %> ;expires=" + expire.toGMTString() + ";" ;
 		document.cookie = "deviceRatio=" + window.devicePixelRatio + "; path=<%=request.getContextPath() %> ;expires=" + expire.toGMTString() + ";" ;
-		
+		 --%>
+		$('#deviceWidthId').val(window.screen.width);
+		$('#deviceHeightId').val(window.screen.height);
+		$('#deviceRatioId').val(window.devicePixelRatio);
+		$('#sendForm').submit();
 	</script>
 </html>

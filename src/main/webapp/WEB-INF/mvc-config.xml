@@ -18,6 +18,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
 			<mvc:exclude-mapping path="/dummy"/>
+			<mvc:exclude-mapping path="/public/**"/>
 			<bean class="kr.co.itwise.device.core.DeviceTypeInterceptor"/>
 		</mvc:interceptor>
 		<mvc:interceptor>

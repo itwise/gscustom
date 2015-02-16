@@ -10,6 +10,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import org.springframework.web.servlet.view.InternalResourceView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.util.WebUtils;
 
 public class CustomViewResolver extends InternalResourceViewResolver{
 	
@@ -18,13 +19,10 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		
 		String originViewName = viewName + "";
-		Cookie[] cookies = request.getCookies();
-		String viewType = "";
-		for (Cookie cookie : cookies) {
-			if("viewType".equals(cookie.getName())){
-				viewType = cookie.getValue();
-			}
-		}
+
+		Cookie viewCookie = WebUtils.getCookie(request, "viewType");
+		System.out.println(viewCookie);
+		String viewType = (viewCookie == null) ? "" : viewCookie.getValue();
 		
 		if(viewType.equals("mobile")){
 			viewName += "_NM";

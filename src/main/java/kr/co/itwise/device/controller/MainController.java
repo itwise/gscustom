@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.mobile.device.Device;
 import org.springframework.mobile.device.DeviceUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +26,26 @@ public class MainController {
 	public ModelAndView goDummyPage(){
 		ModelAndView mav = new ModelAndView("client-device-sender");
 
+		return mav;
+	}
+	
+	@RequestMapping(value="/dummy", method = RequestMethod.POST)
+	public ModelAndView getDeviceInfo(@RequestParam("deviceWidth") int deviceWidth
+			, @RequestParam("deviceHeight") int deviceHeight
+			, @RequestParam("deviceRatio") int deviceRatio
+			, HttpServletRequest request
+			, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("blank");
+		
+		Device device = DeviceUtils.getCurrentDevice(request);
+			
+		if(device.isNormal()){
+			
+		}else{
+			
+			
+		}
+		
 		return mav;
 	}
 	
