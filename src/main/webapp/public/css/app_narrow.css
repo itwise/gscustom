@@ -1,7 +1,6 @@
 @CHARSET "UTF-8";
 
 /* 1. menus */
-/* 1-1. wide */ 
 .nav{	
 	width: 100%;	
 	height: 40px;
@@ -42,13 +41,33 @@
 	background:url('http://image.gsshop.com/ui/gsshop/shop/images/group_home_title_small_on.png') center no-repeat;
 	background-size: contain;
 }
+
+/* shop */
 .shop-product{
 	margin-bottom:5px;
 	border: 1px solid black;
 	height: 200px;
 }
 
-.container{
-	padding-top:10px;
+.shop-product .shop-product-info{
+	height:50px;	
 }
 
+/* product */
+.product-title-bar{
+	text-align:center;
+	padding:5px 5px 5px 5px;
+	height:30px;
+	background-color: #eeaaaa;
+}
+
+.product-info-title-bar{
+	padding:5px 5px 5px 5px;
+	height:30px;
+	background-color: #cccccc;
+}
+
+.product .product-info-content{
+	height: 150px;
+	background-color: #eeeeee;
+}

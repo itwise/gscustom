@@ -46,6 +46,7 @@
 
 /* container */
 .container{
+	padding-top:10px;
 	width:100%;
 	min-width: 1024px;
 	max-width: 1280px;	
@@ -53,12 +54,66 @@
 
 /* shop */
 .shop-product{
+	display:inline;
+	width:170px;
 	margin-bottom:10px;
 }
+
 .shop-product .shop-product-image{
 	border:1px solid #eeeeee;
-	background:url('http://image.gsshop.com/mi09/deal/dealno/c8461c34-05f9-4fe7-bd17-b33969bb72a1.jpg') center no-repeat;
-	background-size:contain;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='http://image.gsshop.com/mi09/deal/dealno/c8461c34-05f9-4fe7-bd17-b33969bb72a1.jpg', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='http://image.gsshop.com/mi09/deal/dealno/c8461c34-05f9-4fe7-bd17-b33969bb72a1.jpg', sizingMethod='scale')";
+	background: center no-repeat;
+	background-size:contain;	
+}
+.shop-product .shop-product-image img{
+	width:160px;
+	height:160px;
+}
+
+.shop-product .shop-product-info{
+	height:100px;
+}
+
+/* product */
+.product-title-bar{
+	padding:5px 5px 5px 5px;
+	height:30px;
+	background-color: #eeeeee;
+}
+
+.product-info-title-bar{
+	padding:5px 5px 5px 5px;
+	height:30px;
+	background-color: #cccccc;
+}
+.product{
+	width:1024px;
+	margin:0 auto;
+}
+
+.product .product-info-image{
+	background-size: contain;
+	width:511px;
+	height:511px;
+	float:left;
+}
+
+.product .product-info-content{
+	position:relative;
+	width:511px;
+	height:511px;
+	float:right;
+}
+
+.product .product-info-action{
+	margin-bottom:10px;
+}
+
+.product .product-info-price{
+	font-size:1.5em;
+}
+
+.product .product-info-content .product-info-bottom{
+	width:100%;
+	position:absolute;
+	bottom:0;
 }

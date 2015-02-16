@@ -3,46 +3,17 @@
 <%@include file="../common/nav.jsp" %>
 <div class="container">
 	<div class="row">		
-		<div class="col-xs-6 col-sm-4">
-			<div class="shop-product">
-					
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-4">
-			<div class="shop-product">
-					
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-4">
-			<div class="shop-product">
-					
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-4">
-			<div class="shop-product">
-					
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-4">
-			<div class="shop-product">
-					
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-4">
-			<div class="shop-product">
-					
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-4">
-			<div class="shop-product">
-					
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-4">
-			<div class="shop-product">
-					
-			</div>
-		</div>
+		<c:forEach var="product" items="${productList}">
+			<a href="product.gs">
+				<div class="col-xs-6 col-sm-4">
+					<div class="shop-product-image single-block" style="background-image:url('${product.imgPath}')" data-background-image-scale></div>
+					<div class="shop-product-info">
+						<h5>${product.title}</h5>
+						<span>${product.price}</span>원
+					</div>
+				</div>
+			</a>
+		</c:forEach>
 	</div>
 </div>	
 <%@include file="../common/footer.jsp"%>

@@ -15,6 +15,7 @@ import org.springframework.web.util.WebUtils;
 public class CustomViewResolver extends InternalResourceViewResolver{
 	
 	protected AbstractUrlBasedView buildView(String viewName) throws Exception{
+		this.setCache(false);
 		System.out.println("viewName : " + viewName);
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		
@@ -33,14 +34,15 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 		viewFile = request.getRealPath(this.getPrefix() + viewName + this.getSuffix());
 
 		File regFile = new File(viewFile);
-		System.out.println("resolving view file: " + viewFile);
+		
 		if(!regFile.exists()){
 			System.out.println("not exist View File");
 			viewName = originViewName;
 		}
 
+		System.out.println("resolving view file: " + viewName);
 		InternalResourceView view = (InternalResourceView)super.buildView(viewName);
-		view.setAlwaysInclude(false);
+		//view.setAlwaysInclude(false);		
 		return view;
 	}
 }

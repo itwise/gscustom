@@ -4,6 +4,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.itwise.device.product.ProductList;
+
 import org.springframework.mobile.device.Device;
 import org.springframework.mobile.device.DeviceUtils;
 import org.springframework.stereotype.Controller;
@@ -67,6 +69,14 @@ public class MainController {
 	@RequestMapping(value="/shop.gs")
 	public ModelAndView shopPage() {
 		ModelAndView mav = new ModelAndView("shop/main");
+		mav.addObject("productList", new ProductList().getProduct());
+		return mav;
+	}
+	
+	@RequestMapping(value="/product.gs")
+	public ModelAndView productPage() {
+		ModelAndView mav = new ModelAndView("shop/product");
+		mav.addObject("product", new ProductList().getProduct().get(0));
 		return mav;
 	}
 
