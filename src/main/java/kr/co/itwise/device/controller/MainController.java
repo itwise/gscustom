@@ -52,11 +52,11 @@ public class MainController {
 		response.addCookie(cookie);
 		
 		if("".equals(redirect)){
-			return new ModelAndView("redirect:/main.gs");
+			return new ModelAndView("redirect:main.gs");
 		}else{
 			// FIXME 임시처리
 			redirect = redirect.replace("/DeviceTypeDetector/", "");
-			return new ModelAndView("redirect:/" + redirect);
+			return new ModelAndView("redirect:" + redirect);
 		}
 	}
 	
