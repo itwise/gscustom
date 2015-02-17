@@ -11,6 +11,6 @@
 	<body>
 	</body>
 	<script type="text/javascript">
-	window.location.href="/DeviceTypeDetector/main.gs";
+	window.location.href="main.gs";
 	</script>
 </html>
