@@ -26,7 +26,7 @@ public class MainController {
 	
 	@RequestMapping(value="/dummy")
 	public ModelAndView goDummyPage(){
-		ModelAndView mav = new ModelAndView("client-device-sender");
+		ModelAndView mav = new ModelAndView("clientResolutionCheck");
 
 		return mav;
 	}
