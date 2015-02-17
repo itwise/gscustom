@@ -1,28 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.springframework.samples.service.service</groupId>
+  <groupId>kr.co.itwise.device</groupId>
   <artifactId>DeviceTypeDetector</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 	<build>
+		<finalName>ROOT</finalName>
 		<plugins>
 			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-jar-plugin</artifactId>
-			    <version>2.3.1</version>
-			    <configuration>
-			        <archive>
-			            <manifest>
-			                <!-- adds a Class-Path element to the MANIFEST.MF file, and includes 
-			                    all dependencies in that Class-Path -->
-			                <addClasspath>true</addClasspath>
-			                <!-- location where all dependencies will be kept -->
-			                <classpathPrefix>lib/</classpathPrefix>
-			                <!-- executable class that contains main method -->
-			                <mainClass>com.sushantworld.core.Loader</mainClass>
-			            </manifest>
-			        </archive>
-			    </configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
