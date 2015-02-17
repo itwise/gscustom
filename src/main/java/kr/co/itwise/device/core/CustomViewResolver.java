@@ -22,13 +22,24 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 		String originViewName = viewName + "";
 
 		Cookie viewCookie = WebUtils.getCookie(request, "viewType");
+		
 		String viewType = (viewCookie == null) ? "" : viewCookie.getValue();
 		System.out.println("viewType : " + viewType);
+		Cookie displayGroupCookie = WebUtils.getCookie(request, "deviceGroup");
+		String displayGroupType = (displayGroupCookie == null) ? "" : displayGroupCookie.getValue();
 		
-		if(viewType.equals("mobile")){
-			viewName += "_NM";
+		if(!"".equals(viewType)){
+			if(viewType.equals("mobile")){
+				viewName += "_NM";
+			}else{
+				viewName += "_W";
+			}
 		}else{
-			viewName += "_W";
+			if("N".equals(displayGroupType) || "M".equals(displayGroupType)){
+				viewName += "_NM";
+			}else{
+				viewName += "_W";
+			}
 		}
 		String viewFile = "";
 		viewFile = request.getRealPath(this.getPrefix() + viewName + this.getSuffix());

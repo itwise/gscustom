@@ -14,18 +14,30 @@ public class DeviceTypeInterceptor implements HandlerInterceptor{
 	
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		Cookie viewCookie = WebUtils.getCookie(request, "viewType");
-		System.out.println(viewCookie);
-		String viewType = (viewCookie == null) ? "" : viewCookie.getValue();
+		Cookie displayGroupCookie = WebUtils.getCookie(request, "displayGroup");
 		
-		System.out.println("view Type : " + viewType);
-		if("".equals(viewType)){
-			String redirectUrl = request.getRequestURI();
-			response.sendRedirect(request.getContextPath() + "/dummy?redirect=" + redirectUrl);
-			return false;	
+		String displayGroup = (displayGroupCookie == null) ? "" : displayGroupCookie.getValue();
+		
+		if("".equals(displayGroup)){
+			String userAgentString = request.getHeader("User-Agent");
+			//1. ua header parser
+			String displayGroupType = UAStringParser.parse(userAgentString);
+			
+			//1-1. 파싱이 불가능한 경우(Redirection)
+			if("".equals(displayGroupType)){
+				String redirectUrl = request.getRequestURI();
+				response.sendRedirect(request.getContextPath() + "/dummy?redirect=" + redirectUrl);
+				return false;	
+			}
+			//2. displayGroup cookie write
+			Cookie cookie = new Cookie("displayGroup", displayGroupType);
+			cookie.setMaxAge(60*60*24*7);
+			cookie.setPath("/");
+			
+			response.addCookie(cookie);
+			
 		}
 		return true;
-			
 	}
 
 	public void postHandle(HttpServletRequest request,
