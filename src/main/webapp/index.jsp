@@ -7,6 +7,7 @@
 	<body>
 	</body>
 	<script type="text/javascript">	
-	window.location.href="main.gs";
+	
+	window.location.href="<%=request.getContextPath()%>/main.gs";
 	</script>
 </html>
