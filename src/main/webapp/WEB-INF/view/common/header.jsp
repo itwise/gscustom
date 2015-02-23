@@ -6,8 +6,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<c:choose>
-			<c:when test="${cookie.useWideViewType.value eq true}">
-				<meta name="viewport" content="width=940px"/>
+			<c:when test="${cookie.viewType.value eq 'wide'}">
+				<meta name="viewport" content="width=1024px"/>
 			</c:when>
 			<c:otherwise>
 				<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
@@ -17,16 +17,17 @@
 		<link rel="stylesheet" href="<%= request.getContextPath() %>/public/lib/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" href="<%= request.getContextPath() %>/public/css/common.css">
 		<c:choose>
-			<c:when test="${cookie.viewType.value eq 'mobile'}">
+			<c:when test="${cookie.displayGroup.value eq 'M' or cookie.displayGroup.value eq 'N'}">
 				<link rel="stylesheet" href="<%= request.getContextPath() %>/public/css/app_narrow.css">
 			</c:when>
 			<c:otherwise>
 				<link rel="stylesheet" href="<%= request.getContextPath() %>/public/css/app_wide.css">
 			</c:otherwise>
 		</c:choose>		
-		
+				
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+    	<script src="<%=request.getContextPath()%>/public/js/common.js"></script>
 	</head> 
 	<body>
