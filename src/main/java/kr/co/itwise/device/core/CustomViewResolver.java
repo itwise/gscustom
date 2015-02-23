@@ -25,7 +25,7 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 		
 		String viewType = (viewCookie == null) ? "" : viewCookie.getValue();
 		System.out.println("viewType : " + viewType);
-		Cookie displayGroupCookie = WebUtils.getCookie(request, "deviceGroup");
+		Cookie displayGroupCookie = WebUtils.getCookie(request, "displayGroup");
 		String displayGroupType = (displayGroupCookie == null) ? "" : displayGroupCookie.getValue();
 		
 		if(!"".equals(viewType)){
