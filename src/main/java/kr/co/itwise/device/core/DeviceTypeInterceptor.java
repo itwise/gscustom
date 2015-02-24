@@ -32,6 +32,7 @@ public class DeviceTypeInterceptor implements HandlerInterceptor{
 			}else {
 				response.addCookie(new Cookie("parsingType" ,"UA"));
 			}
+			request.setAttribute("displayGroup", displayGroupType);
 			//2. displayGroup cookie write
 			Cookie cookie = new Cookie("displayGroup", displayGroupType);
 			cookie.setMaxAge(60*60*24*7);

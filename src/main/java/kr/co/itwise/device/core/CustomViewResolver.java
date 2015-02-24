@@ -35,6 +35,10 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 				viewName += "_W";
 			}
 		}else{
+			if("".equals(displayGroupType)){
+				displayGroupType = (String)request.getAttribute("displayGroup") == null ? "" : (String)request.getAttribute("displayGroup");
+			}
+			
 			if("N".equals(displayGroupType) || "M".equals(displayGroupType)){
 				viewName += "_NM";
 			}else{
