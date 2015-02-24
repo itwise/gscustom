@@ -25,9 +25,12 @@ public class DeviceTypeInterceptor implements HandlerInterceptor{
 			
 			//1-1. 파싱이 불가능한 경우(Redirection)
 			if("".equals(displayGroupType)){
+				response.addCookie(new Cookie("parsingType" ,"redirection"));
 				String redirectUrl = request.getRequestURI();
 				response.sendRedirect(request.getContextPath() + "/dummy?redirect=" + redirectUrl);
 				return false;	
+			}else {
+				response.addCookie(new Cookie("parsingType" ,"UA"));
 			}
 			//2. displayGroup cookie write
 			Cookie cookie = new Cookie("displayGroup", displayGroupType);

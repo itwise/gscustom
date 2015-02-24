@@ -15,6 +15,7 @@
         }
     }
     
+        
 	var deviceInfo = {
 			width: $(window).width(),
 			height: $(window).height(),
@@ -25,6 +26,16 @@
 			
 	var deviceResolutionChecker = {
 		deviceInfo: deviceInfo,
+		getDeviceInfo: function(){
+			this.deviceInfo = {
+					width: $(window).width(),
+					height: $(window).height(),
+					pixelRatio: devicePixelRatio,
+					
+			};
+			
+			return this.deviceInfo;
+		},
 		getDisplayGroup: function(){
 			var deviceGroup = DEVICE_GROUP.NARROW;
 			if(this.deviceInfo.width > 481 && this.deviceInfo.width <= 800){
