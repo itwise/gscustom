@@ -17,13 +17,25 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/public/lib/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/common.css">
 		<c:choose>
-			<c:when test="${cookie.viewType.value eq 'wide'}">
+			<c:when test="${cookie.viewType.value eq 'wide'}">				
 				<c:set var="loadedCSS" value="${pageContext.request.contextPath}/public/css/app_wide.css" />
 				<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/app_wide.css">
 			</c:when>
-			<c:otherwise>
+			<c:when test="${cookie.displayGroup eq null and displayGroup ne null}">
 				<c:choose>
-					<c:when test="${cookie.displayGroup.value eq 'M' or cookie.displayGroup.value eq 'N'}">
+					<c:when test="${(displayGroup eq 'M') or (displayGroup eq 'N')}">
+						<c:set var="loadedCSS" value="${pageContext.request.contextPath}/public/css/app_narrow.css" />
+						<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/app_narrow.css">
+					</c:when>
+					<c:otherwise>
+						<c:set var="loadedCSS" value="${pageContext.request.contextPath}/public/css/app_wide.css" />
+						<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/app_wide.css">
+					</c:otherwise>
+				</c:choose>
+			</c:when>
+			<c:otherwise>				
+				<c:choose>					
+					<c:when test="${(cookie.displayGroup.value eq 'M') or (cookie.displayGroup.value eq 'N')}">
 						<c:set var="loadedCSS" value="${pageContext.request.contextPath}/public/css/app_narrow.css" />
 						<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/app_narrow.css">
 					</c:when>

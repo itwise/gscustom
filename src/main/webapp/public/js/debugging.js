@@ -16,6 +16,8 @@
 			$('#display-group').text($.cookie('displayGroup'));
 			
 			$('#parsing-type').text($.cookie('parsingType'));
+			
+			$('#user-agent').text(window.navigator.userAgent);
 		}
 		
 		debugInfoRendering();

@@ -16,6 +16,9 @@
 	<div class="text-center">
 		<div class="well">
 			<div>
+				<strong>User Agent</strong> <span id="user-agent"></span>
+			</div>
+			<div>
 				<strong>디바이스 검증 기준</strong> <span id="parsing-type"></span>
 			</div>
 			<div>

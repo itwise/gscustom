@@ -12,11 +12,11 @@
 		console.log(deviceResolutionChecker.getDisplayGroup());
 		$.cookie('displayGroup', deviceResolutionChecker.getDisplayGroup(), { expires: 7 });
 			
-		/* if(params.hasOwnProperty('redirect')){
+		if(params.hasOwnProperty('redirect')){
 			location.href = params.redirect;
 		}else{
 			location.href = 'main.gs';			
-		} */
+		}
 	});
 </script>
 <%@ include file="./common/footer.jsp" %>
