@@ -52,6 +52,7 @@ public class CustomViewResolver extends InternalResourceViewResolver{
 		}
 
 		System.out.println("resolving view file: " + viewName);
+		request.setAttribute("viewName", viewName);
 		InternalResourceView view = (InternalResourceView)super.buildView(viewName);
 		//view.setAlwaysInclude(false);		
 		return view;
